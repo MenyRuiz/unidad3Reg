@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-title>Trajes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card>
+        <ion-card-content>
+          <ion-item>
+              <ion-input required type="text" placeholder="Tipo" [(ngModel)]="esta.participantes"></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-input required type="text" placeholder="Talla" [(ngModel)]="esta.porcentaje"></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-input required type="text" placeholder="Color" [(ngModel)]="esta.proyecto"></ion-input>
+          </ion-item>
+        
+          <ion-item>
+              <ion-button color="warning" expand="block" (click)="add()">Enviar pedido</ion-button>
+
+          </ion-item>
+        </ion-card-content>
+      </ion-card>
+
+
+
+      <ion-list>
+          <ion-card *ngFor="let s of estadias">
+            <ion-card-header>
+              <ion-card-subtitle>Color - {{s.proyecto}} </ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content>
+              <p>Talla - {{s.porcentaje}}</p>
+              <p>Tipo - {{s.participantes}}</p>
+             
+              <ion-button color="warning" (click)="edit(s.id,s.proyecto,s.porcentaje,s.participantes)">Editar<ion-icon name="create"></ion-icon></ion-button>
+              <ion-button color="warning" (click)="remove(s.id)">Deshacer <ion-icon name= "undo"></ion-icon></ion-button>
+            </ion-card-content>
+          </ion-card>
+      </ion-list>
+
+      <ion-button color="warning" expand="full" (click)="logOut()">Salir</ion-button>
+
+</ion-content>

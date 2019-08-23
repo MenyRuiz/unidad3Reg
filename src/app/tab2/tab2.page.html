@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-title>
+     Tenis
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-card>
+        <ion-card-content>
+          <ion-item>
+              <ion-label>Modelo</ion-label>
+              <ion-select [(ngModel)]="pendie.estado" placeholder="No especificado">
+                  <ion-select-option value="Hombre">Hombre</ion-select-option>
+                  <ion-select-option value="Mujer">Mujer</ion-select-option>
+                  <ion-select-option value="Unisex">Unisex</ion-select-option>
+                </ion-select>
+          </ion-item>
+          <ion-item>
+              <ion-input required type="text" placeholder="Cantidad de pares" [(ngModel)]="pendie.pedido"></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-input required type="text" placeholder="Color" [(ngModel)]="pendie.ubicacion"></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-button color="warning" expand="block" (click)="add()">Enviar pedido</ion-button>
+
+          </ion-item>
+        </ion-card-content>
+      </ion-card>
+
+
+     
+          <ion-list>
+      <ion-card *ngFor="let pp of pendientes">
+        <ion-card-header>
+          <ion-card-subtitle>{{pp.estado}}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <p>Cantidad de pares - {{pp.pedido}}</p>
+          <p>Color - {{pp.ubicacion}}</p>
+          
+          <ion-button color="warning" (click)="edit(pp.id,pp.estado,pp.pedido,pp.ubicacion)">Modificar <ion-icon name="create"></ion-icon></ion-button>
+          <ion-button color="warning" (click)="remove(pp.id)">Deshacer <ion-icon name="undo"></ion-icon></ion-button>
+        </ion-card-content>
+      </ion-card>
+  </ion-list>
+
+  <ion-button  color="warning" expand="full" (click)="logOut()">Salir</ion-button>
+
+
+</ion-content>

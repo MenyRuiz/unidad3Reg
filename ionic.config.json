@@ -1,0 +1,7 @@
+{
+  "name": "tripas",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

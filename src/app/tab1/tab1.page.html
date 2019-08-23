@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-title>
+      Camisas / Playeras
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card>
+        <ion-card-header>
+          
+        </ion-card-header>
+        <ion-card-content>
+          <ion-item>
+              <ion-input required type="text" placeholder="Color" [(ngModel)]="user.nombre"></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-input required type="text" placeholder="Cantidad" [(ngModel)]="user.apellido"></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-input required type="text" placeholder="Talla" [(ngModel)]="user.Sueldo"></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-input required type="text" placeholder="Marca" [(ngModel)]="user.celular"></ion-input>
+          </ion-item>
+          <ion-item><ion-label>Modelo</ion-label>
+              <ion-select [(ngModel)]="user.estado" placeholder="No especificado">
+                  <ion-select-option value="Mujer">Mujer</ion-select-option>
+                  <ion-select-option value="Hombre">Hombre</ion-select-option>
+                  <ion-select-option value="Unisex">Unisex</ion-select-option>
+                </ion-select>
+          </ion-item>
+          <ion-item>
+              <ion-button color="warning" expand="block" (click)="add()">Enviar pedido</ion-button>
+
+          </ion-item>
+        </ion-card-content>
+      </ion-card>
+
+
+     
+          <ion-list>
+      <ion-card *ngFor="let usuario of usuarios">
+        <ion-card-header>
+          <ion-card-subtitle>Color - {{usuario.nombre}}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+            <p>Cantidad - {{usuario.apellido}}</p>
+          <p>Talla - {{usuario.Sueldo}}</p>
+          <p>Marca - {{usuario.celular}}</p>
+          <p>Modelo - {{usuario.estado}}</p>
+          <ion-button color="warning" (click)="edit(usuario.id,usuario.nombre,usuario.apellido,usuario.Sueldo,usuario.celular,usuario.estado)">Modificar <ion-icon name="create"></ion-icon></ion-button>
+          <ion-button color="warning" (click)="remove(usuario.id)">Deshacer <ion-icon name="undo"></ion-icon></ion-button>
+        </ion-card-content>
+      </ion-card>
+  </ion-list>
+  <ion-button  color= "warning" expand="full" (click)="logOut()">Salir</ion-button>
+
+</ion-content>
